@@ -1,0 +1,18 @@
+#san_header ul li a.active{
+   background-color: #9c27b0 !important;
+   box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(156, 39, 176, 0.4);
+} 
+#san_header ul li a.active p{
+	color: white !important;
+}
+
+/*#san_header {
+    clear: both;
+    visibility: visible !important;
+}*/
+/*.nav.navbar-nav {
+    float: left !important;
+    width: 100% !important;
+}*/
+
+

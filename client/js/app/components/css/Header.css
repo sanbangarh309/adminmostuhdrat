@@ -1,0 +1,11 @@
+#san_header ul li a.active{
+   background-color: #0b0c0c !important;
+} 
+#san_header {
+    clear: both;
+    visibility: visible !important;
+}
+.nav.navbar-nav {
+    float: left !important;
+    width: 100% !important;
+}
