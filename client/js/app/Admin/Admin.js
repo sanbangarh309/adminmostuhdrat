@@ -1,4 +1,5 @@
 import React from 'react';
+import  { Redirect } from 'react-router-dom';
 import axios from 'src/common/myAxios';
 import history from '../history';
 
@@ -128,8 +129,8 @@ class Admin extends React.Component {
 
   render() {
     // console.log(this.state)
-    if (this.state.redirectToReferrer) {
-      return (<Redirect to={'/login'}/>)
+    if (!localStorage.getItem('jwtToken')) {
+      return (<Redirect to={'/admin/login'}/>)
     }
     let addedAlert;
     console.log(window.location.search);

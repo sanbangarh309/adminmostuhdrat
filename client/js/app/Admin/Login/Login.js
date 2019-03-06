@@ -42,7 +42,7 @@ export default class LoginForm extends React.Component {
     }
 
     render() {
-        if (!localStorage.getItem('jwtToken')) {
+        if (localStorage.getItem('jwtToken')) {
           return (<Redirect to={'/admin/home'}/>)
         }
         const {user} = this.props;
