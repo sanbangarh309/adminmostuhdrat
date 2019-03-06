@@ -27,6 +27,8 @@ class Product extends Component {
       barcodes: '',
       description: '',
       images: '',
+      category: '',
+      redirectToReferrer: false,
     };
     this.getUserFeed = this.getUserFeed.bind(this);
     this.add_product = this.add_product.bind(this);
@@ -107,8 +109,8 @@ class Product extends Component {
    }
 
   render() {
-    if (this.state.redirectToReferrer) {
-      return (<Redirect to={'/login'}/>)
+    if (!localStorage.getItem('jwtToken')) {
+      return (<Redirect to={'/admin/login'}/>)
     }
     return (
     <div className="content">
@@ -117,14 +119,14 @@ class Product extends Component {
           <div className="col-md-12">
               <div className="card">
                   <div className="card-header card-header-primary">
-                      <h4 className="card-title">Category</h4>
+                      <h4 className="card-title">Product</h4>
                   </div>
                   <div className="card-body">
                   <div className="row">
                     <div className="col-md-6">
                       <div className="form-group">
                       <label for="sel1">Select Category</label>
-                        <select class="form-control" id="category" name="category">
+                        <select class="form-control" id="category" name="category" onChange={this.onChange}>
                         {this.state.cats.map((cat, index) => {
                            return <option value={cat._id}>{cat.name}</option>;
                         })}
@@ -195,7 +197,7 @@ class Product extends Component {
        let image = <img src = {'/files/products/'+product.images[0]} alt="No Product Image" width={50} height={50} />
        let qrcode = <img src = {'/files/qrcodes/'+product.qrcode} alt="No Qrcode" width={50} height={50} />
        return <tr key={ index }><td>{image}</td><td>{qrcode}</td><td>{product.name}</td><td>{product.price}</td><td>{product.description}</td><td><button type="button" onClick={() => this.delete_product(product._id)}><i class="fa fa-trash" aria-hidden="true"></i></button>
-</td><td><NavLink to={'/product/edit/'+product._id}><i class="fa fa-pencil" aria-hidden="true"></i></NavLink>
+</td><td><NavLink to={'/admin/product/edit/'+product._id}><i class="fa fa-pencil" aria-hidden="true"></i></NavLink>
 </td></tr>;
     })}
                       </tbody>

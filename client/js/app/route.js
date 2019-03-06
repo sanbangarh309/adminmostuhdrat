@@ -6,9 +6,11 @@ import features from './features';
 import auth from 'src/auth';
 
 import App from './components/App';
-import Edit_Product from './Product/Edit_Product';
+import Edit_Product from './Admin/Product/Edit_Product';
 import Admin from './Admin';
 import Product from './Admin/Product';
+import Login from './Admin/Login';
+import Signup from './Admin/Signup';
 import Category from './Admin/Category';
 
 const Home = Loadable({
@@ -28,8 +30,11 @@ export default () => (
             {/* This can only be viewed with advanced permission */}
             <Route path="/advanced-permission" component={TestWithAdvPerm} />
             <Route path="/product/edit/:id" component={Edit_Product} />
+            <Route path="/admin/signup" key={Signup.constants.NAME} component={Signup.route} />
+            <Route path="/admin/login" key={Login.constants.NAME} component={Login.route} />
             <Route path="/admin/home" key={Admin.constants.NAME} component={Admin.route} />
             <Route path="/admin/products" component={Product.route} />
+            <Route path="/admin/product/edit/:id" component={Edit_Product} />
             <Route path="/admin/categories" component={Category.route} />
 
             {/* Import all routes, permissions are verified in each route */}

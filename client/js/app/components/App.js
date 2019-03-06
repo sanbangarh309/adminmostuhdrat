@@ -15,6 +15,13 @@ const defaultProps = {};
 
 const App = ({children}) => {
   let url_params = window.location.href.split("/");
+  if (url_params.indexOf("login") > -1 || url_params.indexOf("signup") > -1) {
+    return (
+        <div>
+          {children}
+        </div>
+    );
+  }
   if (url_params.indexOf("admin") > -1) {
   	return (
         <div>

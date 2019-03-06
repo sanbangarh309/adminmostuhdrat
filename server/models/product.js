@@ -5,7 +5,7 @@ const schema = new mongoose.Schema({
   user_id:{ type: String, default: '' },
   price:String,
   qty: Number,
-  category: Number,
+  category: String,
   color: String,
   description: String,
   qrcode: String,

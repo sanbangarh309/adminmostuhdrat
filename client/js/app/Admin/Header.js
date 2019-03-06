@@ -34,7 +34,9 @@ import './css/Header.css';
 // import {Link} from 'react-router-dom';
 var NavLink = require('react-router-dom').NavLink;
 const Header = () => {
-
+    // if (!localStorage.getItem('jwtToken')) {
+    //   return (<Redirect to={'/admin/login'}/>)
+    // }
   return (
     <div className="sidebar" data-color="purple" data-image="assets/img/sidebar-5.jpg">
 <div className="sidebar-wrapper" id="san_header">
@@ -46,7 +48,7 @@ const Header = () => {
 
             <ul className="nav">
                 <li>
-                <NavLink exact activeClassName='active' to='/'><i className="material-icons">dashboard</i>
+                <NavLink exact activeClassName='active' to='/admin/home'><i className="material-icons">dashboard</i>
                         <p>Dashboard</p>
                 </NavLink>
                 </li>

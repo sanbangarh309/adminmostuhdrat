@@ -122,8 +122,8 @@ class Category extends React.Component {
   render() {
     // <NavLink to={'/category/edit/'+category._id}></NavLink>
     // console.log(this.state)
-    if (this.state.redirectToReferrer) {
-      return (<Redirect to={'/login'}/>)
+    if (!localStorage.getItem('jwtToken')) {
+      return (<Redirect to={'/admin/login'}/>)
     }
     let addedAlert;
     console.log(window.location.search);
@@ -187,7 +187,7 @@ class Category extends React.Component {
                       <tbody>
                         {this.state.data.map((category, index) => {
                           return <tr key={ index }><td>{category.name}</td><td>
-                          <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
+                              <button type="button" rel="tooltip" title="Edit Task" class="btn btn-primary btn-link btn-sm">
                                 <i class="material-icons">edit</i>
                               </button>
                               <button type="button" rel="tooltip" onClick={() => this.delete_category(category._id)} title="Remove" class="btn btn-danger btn-link btn-sm">

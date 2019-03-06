@@ -19,7 +19,6 @@ module.exports = (app) => {
         let base64Data = req.body.images;
         var multiarray = [];
         San_Function.uploadBase64Image(base64Data,function(image_name){
-            console.log(image_name)
             let prod = new Product();
             prod.user_id = 1;
             prod.name = req.body.product_name;
@@ -33,7 +32,6 @@ module.exports = (app) => {
             }
             prod.qty = 1;
             prod.color = 'blue';
-            console.log(prod);
             if (req.body.edit_id) {
                 prod._id = req.body.edit_id;
             }else{

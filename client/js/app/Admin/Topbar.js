@@ -5,6 +5,9 @@ import 'jquery';
 import $ from 'jquery';
 import 'bootstrap/dist/js/bootstrap';
 // import {Link} from 'react-router-dom';
+let logout = () => {
+  localStorage.clear();
+}
 var NavLink = require('react-router-dom').NavLink;
 const Topbar = () => {
   return (
@@ -62,8 +65,8 @@ const Topbar = () => {
                   <a className="dropdown-item" href="#">Profile</a>
                   <a className="dropdown-item" href="#">Settings</a>
                   <div className="dropdown-divider"></div>
-                  <a className="dropdown-item" href="#">Log out</a>
-                </div>
+                  <a className="dropdown-item" onClick={logout} href="#">Logout</a>
+                 </div>
               </li>
             </ul>
           </div>
