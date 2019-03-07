@@ -10,6 +10,7 @@ import Edit_Product from './Admin/Product/Edit_Product';
 import Admin from './Admin';
 import Product from './Admin/Product';
 import Login from './Admin/Login';
+import Logout from './Admin/Logout';
 import Signup from './Admin/Signup';
 import Category from './Admin/Category';
 
@@ -32,6 +33,7 @@ export default () => (
             <Route path="/product/edit/:id" component={Edit_Product} />
             <Route path="/admin/signup" key={Signup.constants.NAME} component={Signup.route} />
             <Route path="/admin/login" key={Login.constants.NAME} component={Login.route} />
+            <Route path="/admin/logout" key={Logout.constants.NAME} component={Logout.route} />
             <Route path="/admin/home" key={Admin.constants.NAME} component={Admin.route} />
             <Route path="/admin/products" component={Product.route} />
             <Route path="/admin/product/edit/:id" component={Edit_Product} />
